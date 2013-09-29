@@ -1,7 +1,6 @@
 # begin eclipse java
 *.pydevproject
 .metadata
-bin/**
 tmp/**
 tmp/**/*
 *.tmp
