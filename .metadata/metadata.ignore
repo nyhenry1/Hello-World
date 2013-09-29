@@ -1,0 +1,3 @@
+version.ini
+.plugins/org.eclipse.jdt.core/variablesAndContainers.dat
+.plugins/org.eclipse.core.resources/.projects/*/.location
