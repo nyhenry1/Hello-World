@@ -7,4 +7,10 @@ tmp/**/*
 *.bak
 *.swp
 *~.nib
+*.dex
+*.cache
+*.apk
+*.ap_
+/MoreHealth/bin/classes/*
+/MoreHealth/bin/dexedLibs/*
 # end eclipse java
