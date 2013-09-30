@@ -11,6 +11,6 @@ tmp/**/*
 *.cache
 *.apk
 *.ap_
-/MoreHealth/bin/classes/*
-/MoreHealth/bin/dexedLibs/*
+MoreHealth/bin/classes/*
+MoreHealth/bin/dexedLibs/*
 # end eclipse java
