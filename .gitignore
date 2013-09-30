@@ -13,4 +13,5 @@ tmp/**/*
 *.ap_
 MoreHealth/bin/classes/*
 MoreHealth/bin/dexedLibs/*
+MoreHealth/bin/res/*
 # end eclipse java
