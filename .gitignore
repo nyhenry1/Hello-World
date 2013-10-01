@@ -14,4 +14,7 @@ tmp/**/*
 MoreHealth/bin/classes/*
 MoreHealth/bin/dexedLibs/*
 MoreHealth/bin/res/*
+JsonAndroid/bin/classes/*
+JsonAndroid/bin/dexedLibs/*
+JsonAndroid/bin/res/*
 # end eclipse java
