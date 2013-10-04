@@ -31,7 +31,7 @@ public class AllProductsActivity extends Activity {
 	JSONParser jParser = new JSONParser();
 	ArrayList<HashMap<String, String>> productsList;
 	private static String url_all_products = 
-			"http://api.androidhive.info/android_connect/get_all_products.php";
+			"http://127.0.0.1/postForm.php";
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "products";
 	private static final String TAG_PID = "pid";
@@ -46,6 +46,7 @@ public class AllProductsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.all_product);
 		productsList = new ArrayList<HashMap<String, String>>();
+		Log.d("All products", "onCreate");
 		new LoadAllProducts().execute();
 		lv = (ListView)findViewById(R.id.list);
 		lv.setOnItemClickListener(new ListView.OnItemClickListener(){
@@ -61,18 +62,21 @@ public class AllProductsActivity extends Activity {
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
+			Log.d("All products", "onPreExecute");
 			super.onPreExecute();
 			pDialog = new ProgressDialog(AllProductsActivity.this);
 			pDialog.setMessage("Loading products. Please wait");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);
 			pDialog.show();
+			
 		}
 		@Override
 		protected String doInBackground(String... args) {
 			// TODO Auto-generated method stub
+			Log.d("All Prodcts:", "doInBackgroud");
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
-			JSONObject json = jParser.makeHttpRequest(url_all_products, "GET", params);
+			JSONObject json = jParser.makeHttpRequest(url_all_products, "POST", params);
 			Log.d("All Prodcts:", json.toString());
 			try{
 				int success = json.getInt(TAG_SUCCESS);
@@ -98,6 +102,7 @@ public class AllProductsActivity extends Activity {
 			catch(JSONException e){
 				e.printStackTrace();
 			}
+
 			return null;
 		}
 		
@@ -109,10 +114,11 @@ public class AllProductsActivity extends Activity {
 				@Override
 				public void run() {
 					// TODO Auto-generated method stub
-					ListAdapter adapter = new SimpleAdapter(
+/*				ListAdapter adapter = new SimpleAdapter(
 					AllProductsActivity.this, productsList, R.layout.list_item, new String[]
 							{TAG_PID, TAG_NAME}, new int[]{ R.id.pid, R.id.name});
 					lv.setAdapter(adapter);
+*/
 				}
 			}));
 		}

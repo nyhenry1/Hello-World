@@ -21,9 +21,9 @@
         android:id="@+id/btnCreateProduct"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="17dp"
+        android:layout_alignLeft="@+id/btnViewProducts"
+        android:layout_below="@+id/btnViewProducts"
+        android:layout_marginTop="14dp"
         android:text="Add New Products" />
 
 </RelativeLayout>

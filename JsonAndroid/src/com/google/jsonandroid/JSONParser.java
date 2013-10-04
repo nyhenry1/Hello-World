@@ -12,6 +12,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.protocol.HTTP;
@@ -36,9 +37,18 @@ public class JSONParser {
 			// request method is POST 
 			// defaultHttpClient 
 			DefaultHttpClient httpClient = new DefaultHttpClient(); 
-			HttpPost httpPost = new HttpPost(url); 
-			httpPost.setEntity(new UrlEncodedFormEntity(params,HTTP.UTF_8)); 
-			HttpResponse httpResponse = httpClient.execute(httpPost); 
+			HttpResponse httpResponse;
+			if(method == "POST")
+			{
+				HttpPost httpPost = new HttpPost(url); 
+				httpPost.setEntity(new UrlEncodedFormEntity(params,"utf-8")); 
+				httpResponse = httpClient.execute(httpPost); 
+			}
+			else
+			{
+				HttpGet httpGet = new HttpGet(url);
+				httpResponse = httpClient.execute(httpGet); 
+			}
 			HttpEntity httpEntity = httpResponse.getEntity(); 
 			is = httpEntity.getContent(); 
 		} catch (UnsupportedEncodingException e) { 
