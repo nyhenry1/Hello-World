@@ -3,12 +3,10 @@ package com.google.jsonandroid;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.http.NameValuePair;
 import org.json.JSONArray;
-
-
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -19,11 +17,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 public class AllProductsActivity extends Activity {
@@ -31,7 +26,7 @@ public class AllProductsActivity extends Activity {
 	JSONParser jParser = new JSONParser();
 	ArrayList<HashMap<String, String>> productsList;
 	private static String url_all_products = 
-			"http://127.0.0.1/postForm.php";
+			"http://192.168.56.1/postForm.php";
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "products";
 	private static final String TAG_PID = "pid";
@@ -75,8 +70,8 @@ public class AllProductsActivity extends Activity {
 		protected String doInBackground(String... args) {
 			// TODO Auto-generated method stub
 			Log.d("All Prodcts:", "doInBackgroud");
-			List<NameValuePair> params = new ArrayList<NameValuePair>();
-			JSONObject json = jParser.makeHttpRequest(url_all_products, "POST", params);
+			Map<String, String> params = new HashMap<String, String>();
+			JSONObject json =JSONParser.sendHttpClientPost(url_all_products, params, "POST");
 			Log.d("All Prodcts:", json.toString());
 			try{
 				int success = json.getInt(TAG_SUCCESS);
