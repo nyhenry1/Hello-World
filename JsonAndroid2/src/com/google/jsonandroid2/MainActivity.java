@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
 			String path = "http://192.168.56.1/PHPAndroidDB/get_all_products.php";
 			Map<String, String> params = new HashMap<String, String>();
 			String result = HttpUtils.sendHttpClientPost(path, params, "utf-8");
-			try {
+/*			try {
 				JSONObject jsonObject = new JSONObject(result);
 				Iterator keys = jsonObject.keys();
 				Map<String, String> map = new HashMap<String, String>();
@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
 						String key = (String)curKeys.next();
 						String val = curObj.getString(key);
 						char iniCh = val.charAt(0);
-						if(iniCh == '{'){
+						if(iniCh == '{'){ 
 							JSONObject newJsonobj = curObj.getJSONObject(key);
 							objectQ.offer(newJsonobj);
 						}
@@ -76,10 +76,12 @@ public class MainActivity extends Activity {
 				}
 				int mapLen= map.size();
 				Log.d("map size", ""+mapLen);
+
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+*/
 			System.out.println("result-->"+ result);
 			Log.d("hello", "--result-->"+result);
 			return null;

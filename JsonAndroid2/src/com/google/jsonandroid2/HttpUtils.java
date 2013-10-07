@@ -22,6 +22,7 @@ public class HttpUtils {
 	public HttpUtils() {
 		// TODO Auto-generated constructor stub
 	}
+	
 	public static String sendHttpClientPost(String path, Map<String, String> map, String encode){
 		List<NameValuePair> list = new ArrayList<NameValuePair>();
 		if(map != null && !map.isEmpty()){
