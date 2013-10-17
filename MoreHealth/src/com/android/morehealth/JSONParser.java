@@ -14,7 +14,7 @@ public class JSONParser {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public JSONObject strToJSON(String str){
+	public static JSONObject strToJSON(String str){
 		try {
 			return new JSONObject(str);
 		} catch (JSONException e) {
@@ -25,7 +25,7 @@ public class JSONParser {
 	}
 	
 	// 0 val 1 obj 2 array -1 error
-	public int keyRetType(JSONObject obj, String key) {
+	public static int keyRetType(JSONObject obj, String key) {
 		
 		String val;
 		try {
@@ -44,18 +44,11 @@ public class JSONParser {
 		return -1;
 	}
 	
-	public boolean success(JSONObject obj){
-		Queue<JSONObject> objectQ = new LinkedList<JSONObject>();
-		objectQ.offer(obj);
+	public static boolean successRes(JSONObject obj){
 		try {
-			if(!objectQ.isEmpty()){
-				JSONObject curObj = objectQ.poll();
-				Iterator curKeys = curObj.keys();
-				while(curKeys.hasNext()){
-					if((String)curKeys.next() == "success")
-						return obj.getString("success") == "1";
-				}
-			}
+			String strVal = obj.getString("status");
+			return (strVal.compareTo("success") == 0);
+
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -9,6 +9,33 @@ public class MyGlobalApp extends Application {
 
 	public boolean loginFlag = false;
 
+	public String baseUrl = "http://192.168.56.1/";
+	public String signIn = "more-health/mobile-sign-in.php";
+	public boolean loginSuccess = false;
+	public boolean isLoginSuccess() {
+		return loginSuccess;
+	}
+
+	public void setLoginSuccess(boolean loginSuccess) {
+		this.loginSuccess = loginSuccess;
+	}
+
+	public String getSignIn() {
+		return signIn;
+	}
+
+	public void setSignIn(String signIn) {
+		this.signIn = signIn;
+	}
+
+	public String getBaseUrl() {
+		return baseUrl;
+	}
+
+	public void setBaseUrl(String baseUrl) {
+		this.baseUrl = baseUrl;
+	}
+
 	public boolean isLoginFlag() {
 		return loginFlag;
 	}
@@ -34,4 +61,6 @@ public class MyGlobalApp extends Application {
 
 		return list;
 	}
+	
+	
 }
