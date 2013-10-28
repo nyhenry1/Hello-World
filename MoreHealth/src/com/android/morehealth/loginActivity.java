@@ -3,8 +3,6 @@ package com.android.morehealth;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -12,10 +10,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class loginActivity extends Activity {
 	private Button loginButton;
+	private Button signUpButton;
 	private MyGlobalApp myApp;
+	private EditText nameEText;
+	private EditText passwordEText;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +25,26 @@ public class loginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
 		loginButton = (Button) this.findViewById(R.id.loginButton);
+		signUpButton = (Button)this.findViewById(R.id.signUpButton);
+		nameEText = (EditText)this.findViewById(R.id.editText1);
+		passwordEText = (EditText)this.findViewById(R.id.editText2);
+
+
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 
 				new loginTask().execute();
+			}
+		});
+		signUpButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				new signUpTask().execute();
+				
 			}
 		});
 	}
@@ -43,8 +59,8 @@ public class loginActivity extends Activity {
 			newPath += myApp.signIn;
 
 			Map<String, String> params = new HashMap<String, String>();
-			params.put("email", "zghanxiao@gmail.com");
-			params.put("passowrd", "hello");
+			params.put("email", nameEText.getText().toString());
+			params.put("password", passwordEText.getText().toString());
 
 			String result = HttpUtils.sendHttpClientPost(newPath, params,
 					"utf-8");
@@ -70,6 +86,19 @@ public class loginActivity extends Activity {
 				startActivity(intent);
 			}
 
+		}
+	};
+	
+	class signUpTask extends AsyncTask<String, String, String> {
+		@Override
+		protected String doInBackground(String... arg0) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(String result) {
+			super.onPostExecute(result);
 		}
 	};
 }

@@ -9,8 +9,8 @@ public class MyGlobalApp extends Application {
 
 	public boolean loginFlag = false;
 
-	public String baseUrl = "http://192.168.56.1/";
-	public String signIn = "more-health/mobile-sign-in.php";
+	public String baseUrl = "http://more-holdings-engine.herokuapp.com/";
+	public String signIn = "more-health/mobile-sign-in";
 	public boolean loginSuccess = false;
 	public boolean isLoginSuccess() {
 		return loginSuccess;
