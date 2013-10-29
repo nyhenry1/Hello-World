@@ -43,7 +43,10 @@ public class loginActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				new signUpTask().execute();
+				Intent intent = new Intent();
+				intent.setClass(loginActivity.this, signUpActivity.class);
+				myApp = (MyGlobalApp) getApplication();
+				startActivity(intent);
 				
 			}
 		});
@@ -82,23 +85,10 @@ public class loginActivity extends Activity {
 				Intent intent = new Intent();
 				intent.setClass(loginActivity.this, MainActivity.class);
 				myApp = (MyGlobalApp) getApplication();
-				myApp.setLoginFlag(true);
 				startActivity(intent);
 			}
 
 		}
 	};
 	
-	class signUpTask extends AsyncTask<String, String, String> {
-		@Override
-		protected String doInBackground(String... arg0) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(String result) {
-			super.onPostExecute(result);
-		}
-	};
 }

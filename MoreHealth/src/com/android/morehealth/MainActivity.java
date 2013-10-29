@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myApp = (MyGlobalApp)getApplication();
-        if(!myApp.isLoginFlag())
+        if(!myApp.isLoginSuccess())
         {
         	Intent intent = new Intent();
         	intent.setClass(MainActivity.this, loginActivity.class);
