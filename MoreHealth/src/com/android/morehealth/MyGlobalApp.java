@@ -10,6 +10,7 @@ public class MyGlobalApp extends Application {
 
 	public String baseUrl = "http://more-holdings-engine.herokuapp.com/";
 	public String signIn = "more-health/mobile-sign-in";
+	public String signUp = "more-health/mobile-sign-up";
 	public boolean loginSuccess = false;
 	public boolean isLoginSuccess() {
 		return loginSuccess;
@@ -17,6 +18,14 @@ public class MyGlobalApp extends Application {
 
 	public void setLoginSuccess(boolean loginSuccess) {
 		this.loginSuccess = loginSuccess;
+	}
+
+	public String getSignUp() {
+		return signUp;
+	}
+
+	public void setSignUp(String signUp) {
+		this.signUp = signUp;
 	}
 
 	public String getSignIn() {
