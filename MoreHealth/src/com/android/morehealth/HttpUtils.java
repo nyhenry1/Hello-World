@@ -16,6 +16,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.HttpConnectionParams;
 
 public class HttpUtils {
 
@@ -35,8 +36,10 @@ public class HttpUtils {
 			HttpPost httpPost = new HttpPost(path);
 			httpPost.setEntity(entity);
 			HttpClient client = new DefaultHttpClient();
+			HttpConnectionParams.setConnectionTimeout(client.getParams(), 10000);
 			HttpResponse httpResponse = client.execute(httpPost);
-			if(httpResponse.getStatusLine().getStatusCode() == 200){
+			int ret = httpResponse.getStatusLine().getStatusCode();
+			if(ret == 200){
 				return changeInputStream(httpResponse.getEntity().getContent(), encode);
 			}
 			
